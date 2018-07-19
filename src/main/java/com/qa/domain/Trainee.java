@@ -1,18 +1,39 @@
 package com.qa.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Trainee {
 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Long id;
+	@Pattern(regexp = "^[A-Za-z]$")
 	private String fName;
+	@Pattern(regexp = "^[A-Za-z]$")
 	private String lName;
-	private String language;
+	@JoinColumn(name = "trainee_id")
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Subject> subject;
+	@Size(min = 3, max = 9)
 	private String startMonth;
 
-	public Trainee(long id, String fName, String lName, String language, String startMonth) {
+	public Trainee(long id, String fName, String lName, List<Subject> subject, String startMonth) {
 		this.id = id;
 		this.fName = fName;
 		this.lName = lName;
-		this.language = language;
+		this.subject = subject;
 		this.startMonth = startMonth;
 	}
 
@@ -39,13 +60,13 @@ public class Trainee {
 	public String getlName() {
 		return lName;
 	}
-
-	public void setLanguage(String language) {
-		this.language = language;
+	
+	public void setSubject(List<Subject> subject) {
+		this.subject = subject;
 	}
 
-	public String getLanguage() {
-		return language;
+	public List<Subject> getSubject() {
+		return subject;
 	}
 
 	public void setStartMonth(String startMonth) {
