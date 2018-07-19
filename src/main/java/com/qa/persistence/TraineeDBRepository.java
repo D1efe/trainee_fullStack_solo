@@ -1,4 +1,4 @@
-package com.qa.persistence.repository;
+package com.qa.persistence;
 
 import java.util.Collection;
 
@@ -69,4 +69,12 @@ public class TraineeDBRepository implements ITrainee {
 		return manager.find(Trainee.class, id);
 	}
 
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtility util) {
+		this.util = util;
+
+	}
 }

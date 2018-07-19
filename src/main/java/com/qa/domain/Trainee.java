@@ -29,11 +29,9 @@ public class Trainee {
 	@Size(min = 3, max = 9)
 	private String startMonth;
 
-	public Trainee(long id, String fName, String lName, List<Subject> subject, String startMonth) {
-		this.id = id;
+	public Trainee(String fName, String lName, String startMonth) {
 		this.fName = fName;
 		this.lName = lName;
-		this.subject = subject;
 		this.startMonth = startMonth;
 	}
 

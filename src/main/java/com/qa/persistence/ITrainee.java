@@ -1,4 +1,4 @@
-package com.qa.persistence.repository;
+package com.qa.persistence;
 
 import com.qa.domain.Trainee;
 
