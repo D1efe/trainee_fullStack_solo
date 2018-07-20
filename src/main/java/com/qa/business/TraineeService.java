@@ -43,5 +43,8 @@ public class TraineeService implements ITraineeService{
 		LOG.info("service find trainee");
 		return repo.findTrainee(id);
 	}
+	public void setRepo(ITrainee repo) {
+		this.repo = repo;
+	}
 
 }
