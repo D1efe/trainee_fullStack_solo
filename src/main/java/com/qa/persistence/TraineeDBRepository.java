@@ -33,16 +33,13 @@ public class TraineeDBRepository implements ITrainee {
 	@Override
 	@Transactional(TxType.REQUIRED)
 	public String updateTrainee(Long id, String updateInfo) {
-		String message = "";
 		Trainee updatedTrainee = util.getObjectForJSON(updateInfo, Trainee.class);
 		Trainee currentTrainee = findTrainee(id);
 		if (updateInfo != null) {
 			currentTrainee = updatedTrainee;
 			manager.merge(currentTrainee);
-			message = "Information successfully updated";
-		} else
-			message = "update was unsuccessful";
-		return message;
+		}
+		return "{\"message\": \"account has been sucessfully added\"}";
 	}
 
 	@Override
@@ -64,8 +61,7 @@ public class TraineeDBRepository implements ITrainee {
 		return util.getJSONForObject(trainees);
 	}
 
-	@Override
-	public Trainee findTrainee(Long id) {
+	private Trainee findTrainee(Long id) {
 		return manager.find(Trainee.class, id);
 	}
 

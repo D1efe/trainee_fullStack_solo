@@ -1,7 +1,5 @@
 package com.qa.persistence;
 
-import com.qa.domain.Trainee;
-
 public interface ITrainee {
 	
 	String createTrainee(String account);
@@ -11,7 +9,5 @@ public interface ITrainee {
 	String deleteTrainee(Long id);
 	
 	String getAllTrainees();
-	
-	Trainee findTrainee(Long id);
 
 }

@@ -1,7 +1,5 @@
 package com.qa.business;
 
-import com.qa.domain.Trainee;
-
 public interface ITraineeService {
 
 	String createTrainee(String account);
@@ -11,7 +9,5 @@ public interface ITraineeService {
 	String deleteTrainee(Long id);
 
 	String getAllTrainees();
-
-	Trainee findTrainee(Long id);
 
 }

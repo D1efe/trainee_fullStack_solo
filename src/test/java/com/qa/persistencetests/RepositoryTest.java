@@ -33,8 +33,8 @@ public class RepositoryTest {
 
 	private JSONUtility util;
 
-	private static final String MOCK_DATA_ARRAY = "[{\"firstName\":\"Daniel\",\"secondName\":\"Osagie\",\"startMonth\":\"June\"}]";
-	private static final String MOCK_OBJECT = "[{\"firstName\":\"Daniel\",\"secondName\":\"Osagie\",\"startMonth\":\"June\"}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"fName\":\"Daniel\",\"lName\":\"Osagie\",\"startMonth\":\"June\"}]";
+	private static final String MOCK_OBJECT = "{\"fName\":\"Daniel\",\"lName\":\"Osagie\",\"startMonth\":\"June\"}";
 	private static final Long MOCK_ID = 1L;
 
 	@Before
@@ -50,23 +50,24 @@ public class RepositoryTest {
 		List<Trainee> trainees = new ArrayList<Trainee>();
 		trainees.add(new Trainee("Daniel", "Osagie", "June"));
 		Mockito.when(query.getResultList()).thenReturn(trainees);
-		Assert.assertEquals("Information successfully updated", repo.getAllTrainees());
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllTrainees());
 	}
 
 	@Test
-	public void testCreatetrainee() {
+	public void testCreateTrainee() {
 		String reply = repo.createTrainee(MOCK_OBJECT);
 		Assert.assertEquals(reply, MOCK_OBJECT);
 	}
 
 	@Test
-	public void testUpdatetrainee() {
+	public void testUpdateTrainee() {
 		String reply = repo.updateTrainee(1L, MOCK_OBJECT);
-		Assert.assertEquals(reply, "{\"message\": \"trainee sucessfully updated\"}");
+		System.out.println(reply);
+		Assert.assertEquals(reply, "{\"message\": \"account has been sucessfully added\"}");
 	}
 
 	@Test
-	public void testDeletetrainee() {
+	public void testDeleteTrainee() {
 		String reply = repo.deleteTrainee(1L);
 		Assert.assertEquals(reply, repo.deleteTrainee(MOCK_ID));
 	}
