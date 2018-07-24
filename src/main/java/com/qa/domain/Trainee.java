@@ -29,6 +29,10 @@ public class Trainee {
 	@Size(min = 3, max = 9)
 	private String startMonth;
 
+	public Trainee() {
+		
+	}
+	
 	public Trainee(String fName, String lName, String startMonth) {
 		this.fName = fName;
 		this.lName = lName;

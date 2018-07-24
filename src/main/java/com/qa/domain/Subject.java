@@ -17,6 +17,10 @@ public class Subject {
 	@Pattern(regexp = "^[0-9]+$")
 	int rating;
 
+	public Subject () {
+		
+	}
+	
 	public Subject (Long id, String subjectName, int rating) {
 		this.id = id;
 		this.subjectName = subjectName;
